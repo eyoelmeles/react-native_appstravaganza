@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "digital-wallet",
-    "slug": "digital-wallet",
+    "name": "react-native-appStravaganza",
+    "slug": "rn-stravaganza",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
