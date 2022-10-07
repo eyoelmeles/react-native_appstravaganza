@@ -6,7 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import DigitalWallet from './digital-wallet/navigations/stack';
 import { FlatList } from 'react-native-gesture-handler';
-import { SIZES } from './digital-wallet/assets/theme';
+import { FONTS, SIZES } from './digital-wallet/assets/theme';
+import FoodDelivery from './food-delivery/navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,11 @@ function AppList ({ navigation }) {
       name: "DigitalWallet",
       bgColor: "",
       description: "This Wallet uses your bank account to pay for utility bills and more",
+    },
+    {
+      name: "FoodDelivery",
+      bgColor: "",
+      description: "Order and watch your food gets near and near you in seconds",
     },
   ];
 
@@ -30,9 +36,12 @@ function AppList ({ navigation }) {
           backgroundColor: 'green',
           margin: SIZES.padding,
         }}
-        onPress={() => navigation.navigate("DigitalWallet")}
+        onPress={() => navigation.navigate(item.name)}
       >
-        <Text style={{color: "white"}}>{item.name}</Text>
+        <View style={{padding: SIZES.padding}}>
+          <Text style={{color: "white"}}>{item.name}</Text>
+          <Text style={[FONTS.body4, {color: "#fefefe"}]}>{item.description}</Text>
+        </View>
       </TouchableOpacity>
     )
   }
@@ -62,6 +71,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="AppList" screenOptions={{headerShown: false}}>
         <Stack.Screen name="AppList" component={AppList} />
         <Stack.Screen name="DigitalWallet" component={DigitalWallet} />
+        <Stack.Screen name="FoodDelivery" component={FoodDelivery} />
       </Stack.Navigator>
     </NavigationContainer>
   )
